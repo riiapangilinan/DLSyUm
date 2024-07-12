@@ -1,0 +1,1316 @@
+*{
+    font-family: poppins;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+}
+ 
+::selection{
+color:#ffffff;
+background-color:#40aa54;}
+
+ 
+/*==Navigation=====================================*/
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    max-width: 1070px;
+    width: 100%;
+    margin: auto;
+}
+.menu{
+    display: flex;
+}
+.menu li a{
+    padding: 3px 10px;
+    margin: 0px 15px;
+    color: #3b3b3b;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all ease 0.3s;
+}
+.logo{
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #202020;
+}
+.logo span{
+    color: #40aa54;
+}
+.right-nav{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 25px;
+    padding-inline-end: 20px;
+}
+.right-nav a{
+    width:40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+.right-nav .like{
+    background-color: #fff0ee;
+    color: #ff6c57;
+}
+.right-nav .cart{
+    background-color: #ecf7ee;
+    color: #4eb060;
+}
+.right-nav a span{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width:20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-weight: 500;
+}
+.right-nav .like span{
+    background-color: #ff6c57;
+}
+.right-nav .cart span{
+    background-color: #4eb060;
+}
+.menu li a:hover,
+.menu .active{
+    color: #40aa54;
+    transition: all ease 0.3s;
+}
+
+/* Style for user-greeting */
+#user-greeting {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: 500;
+    color: #3b3b3b;
+}
+
+/* Dropdown container */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the user icon */
+.user-dropdown .fas.fa-user {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    right: 0;
+    top: 40px;
+    z-index: 1;
+    min-width: 120px;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show the dropdown menu on hover */
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Hover effect for "View Profile" */
+.dropdown-content .view-profile:hover {
+    background-color: #f0f0f0;
+}
+
+/* Hover effect for "Edit Profile" */
+.dropdown-content .edit-profile:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+ 
+/*==Search-Banner========================*/
+#search-banner{
+    max-width: 1250px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: #ecf7ee;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url(../images/bg.png);
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: bottom right;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.bg-1{
+    position: absolute;
+    left: -50px;
+    top: -150px;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.bg-2{
+    position: absolute;
+    left: 60%;
+    transform: translateX(-60%);
+    top: -75px;
+    width: 150px;
+    height: 150px;
+    object-position: center;
+    object-fit: contain;
+}
+
+.search-banner-text{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 70px;
+    position: relative;
+}
+
+.search-banner-text h1{
+    font-size: 3rem;
+    line-height: 55px;
+    color: #202020;
+}
+
+.search-banner-text strong{
+    color: #4eb060;
+    font-size: 1.4rem;
+    margin-top: 4px;
+}
+
+.search-box{
+    background-color: #ffffff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    padding: 0px 5px 0px 20px;
+    border-radius: 30px;
+}
+
+.search-box i{
+    font-size: 1.3rem;
+    color: #3b3b3b;
+    margin: 0px 10px;
+}
+
+.search-box .search-input{
+    height: 40px;
+    border: none;
+    width: 100%;
+    padding: 0px 10px;
+    outline: none;
+}
+
+.search-box .search-btn{
+    width:220px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: #4eb060;
+    border: none;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.search-box .search-btn:hover{
+    background-color: #5ccf71;
+    transition: all ease 0.3s;
+}
+
+
+
+
+
+/*==category================================*/
+#category,
+#popular-product,
+#popular-bundle-pack,
+#partner{
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+.category-heading,
+.product-heading,
+.partner-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.category-heading h2,
+.product-heading h3,
+.partner-heading h3{
+    font-size: 1.56rem;
+    font-weight: 700;
+    color: #202020;
+    letter-spacing: 0.5px;
+}
+.category-heading span,
+.product-heading span{
+    color: #a7a7a7;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+
+
+/*==establishments========================*/
+#popular-product{
+    margin: 80px auto;
+}
+
+
+/*==Container Styling========================*/
+.box{
+    max-width: 1068px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-gap: 30px;
+    align-items: center;
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/*==Grid Containers========================*/
+.store-container,
+.about {
+    display: grid;
+    grid-gap: 30px;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+.about {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, auto));
+    gap: 2rem;
+}
+
+
+.about-img img{
+    border-radius: 20px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.about-text span{
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color:#40aa54; 
+}
+
+.about-text h2{
+    font-size: 1.7rem;
+}
+
+.about-text h2:hover {
+    color: #ff5733; /* Change to desired hover color */
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.about-text p{
+    font-size: 0.983rem;
+    margin: 1rem 0 1rem;
+}
+
+.cart-btn{
+    width:100%;
+    height: 40px;
+    background-color: #ecf7ee;
+    color: #4eb060;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    transition: all ease 0.3s;
+}
+.cart-btn i{
+    margin-right: 10px;
+}
+.cart-btn:hover{
+    background-color: #4eb060;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+/* Add this to your existing style.css */
+
+/* Establishment container */
+.establishment-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.establishment-name {
+    color: purple;
+}
+
+#establishment-info {
+    flex-basis: calc(50% - 20px); /* Adjust width based on container padding and gap */
+    padding: 20px;
+    text-align: left;
+}
+
+#reviews-list {
+    flex-basis: calc(50% - 20px); /* Adjust width based on container padding and gap */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 600px; /* Adjust as needed */
+}
+
+.helpful-buttons {
+    float: right; /* Align the buttons to the right */
+}
+
+.helpful-buttons button {
+    margin-left: 5px; /* Add space between the buttons */
+}
+
+.helpful-count, .unhelpful-count {
+    margin-left: 5px; /* Add space between the counts and buttons */
+    font-weight: bold; /* Make the counts bold */
+}
+
+/* Thumbs up and down button styles */
+.helpful-btn, .unhelpful-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.helpful-btn i, .unhelpful-btn i {
+    font-size: 24px;
+    transition: color 0.3s, fill 0.3s;
+}
+
+.helpful-btn i.far, .unhelpful-btn i.far {
+    color: rgb(0, 0, 0); /* Outline color for thumbs up */
+}
+
+.helpful-btn i:hover{
+    color: green; /* Filled color on hover */
+}
+
+.unhelpful-btn i:hover {
+    color: red; /* Filled color for thumbs up when clicked */
+}
+
+.unhelpful-btn i.fas {
+    color: red; /* Filled color for thumbs down when clicked */
+}
+
+.helpful-btn.active {
+    color: green; /* or any color you prefer to indicate the active state */
+}
+
+.unhelpful-btn.active{
+    color: red;
+}
+
+
+
+
+#review-form-container {
+    flex-basis: 100%; /* Take full width */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-top: 20px; /* Add some space between reviews and form */
+}
+
+.review {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.review p strong {
+    color: #333;
+}
+
+.review p span {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.review img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 150px; /* Set a smaller max-width for the image */
+    border-radius: 5px;
+    margin: 10px 0; /* Add some margin to separate the image from the text */
+    display: block;
+    
+}
+
+.review-actions {
+    text-align: right; /* Aligns the container to the right */
+}
+
+.edit-review-link, .delete-review-link{
+    color: green;
+}
+
+.edit-review-link:hover, .delete-review-link:hover{
+    color: #a84eb0; /* Change color on hover */
+    transition: color 0.3s;
+}
+
+.reply-link {
+    color: green;
+}
+
+.reply-link:hover {
+    color: #a84eb0; /* Change color on hover */
+    transition: color 0.3s;
+}
+
+
+
+
+/* Reply container styles */
+.reply-container {
+    margin-top: 10px; /* Add some space between the review and reply container */
+}
+
+.reply-textarea {
+    width: 100%;
+    height: 100px; /* Adjust the height as needed */
+    resize: vertical; /* Allow vertical resizing */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comment-btn {
+    cursor: pointer;
+    color: black; /* Change the color to make it look clickable */
+    margin-top: 10px; /* Add some space above the "Reply" text */
+    display: inline-block; /* Ensure it's displayed as a block element */
+}
+
+.comment-btn:hover {
+    color: darkblue; /* Change color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+.reply-btn, .cancel-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.reply-btn {
+    background-color: #4eb060;
+    color: #fff;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Reply button hover effect */
+.reply-btn:hover {
+    background-color: #3b8e53;
+    transition: color 0.3s;
+}
+
+/* Cancel button hover effect */
+.cancel-btn:hover {
+    background-color: #c82333;
+    transition: color 0.3s;
+}
+
+
+
+
+.establishment-details h2 {
+    margin-top: 10px;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Establishment container */
+.about {
+    position: relative; /* Add relative positioning to the container */
+}
+
+/* Establishment name */
+.about h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+/* Hover effect for establishment name */
+.about h2 a:hover,
+.review strong a:hover {
+    color: #a84eb0; /* Change color on hover */
+    transition: color 0.3s;
+}
+
+
+.establishment-details p {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Establishment header */
+.establishment-header {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.establishment-header img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.read-more {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    color: #0056b3;
+}
+
+
+.review-user {
+    color: green;
+}
+
+
+#review-form h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#review-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+#review-form input[type="text"],
+#review-form textarea,
+#review-form select,
+#review-form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Registration form styles */
+
+/* Form container */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form fields */
+#register-form input[type="text"],
+#register-form input[type="password"],
+#register-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#register-form textarea {
+    resize: vertical;
+}
+
+/* Adjustments for the Confirm Password field */
+#confirm-password {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Positioning the checkbox beside the label */
+.restaurant-label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #555;
+    vertical-align: middle; /* Align vertically with checkbox */
+}
+
+#restaurant {
+    margin-left: 5px; /* Adjust the margin to create space between label and checkbox */
+    vertical-align: middle; /* Align checkbox vertically with label */
+}
+
+
+/* Profile Picture */
+#profile-picture {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: #555;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+
+
+/* Submit button */
+#register-form button, #login-form button, #review-form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px; /* Adjust padding for better button size */
+    background-color: #4eb060; /* Match button color with existing color scheme */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#register-form button:hover, #login-form button:hover, #review-form button  {
+    background-color: #3b8e53; /* Adjust hover color to match existing color scheme */
+}
+
+
+/* Login form styles */
+
+/* Form container */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form fields */
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Remember Me checkbox */
+#login-form label {
+    font-size: 1em;
+    color: #555;
+}
+
+#login-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Don't have an account? Register link */
+.form-container p {
+    margin-top: 20px; /* Add some space between the form and the link */
+    font-size: 0.9em; /* Decrease font size for better fit */
+    text-align: center; /* Center align the link */
+}
+
+.form-container a {
+    color: #4eb060; /* Match link color with existing color scheme */
+    text-decoration: none; /* Remove underline from the link */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.form-container a:hover, .user-dropdown .fas.fa-user:hover {
+    color: #3b8e53; /* Adjust hover color to match existing color scheme */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+
+/* Profile page styles */
+/* Profile header */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    object-fit: cover;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.profile-header img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    text-align: center;
+}
+
+.profile-details h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-details p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 200px;
+}
+
+/* Recent activities */
+#recent-activities {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activity {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activity h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.activity p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Add this to your existing CSS */
+
+/* Form container */
+#edit-profile {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#edit-profile h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form fields */
+#edit-profile input[type="file"],
+#edit-profile textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#edit-profile textarea {
+    resize: vertical;
+}
+
+/* Submit button */
+#edit-profile button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #4eb060;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#edit-profile button:hover {
+    background-color: #3b8e53;
+}
+
+/* Adjustments for Profile Picture input */
+#profile-picture {
+    margin-bottom: 15px;
+}
+
+/* Style for dropdown to match input fields */
+#description {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    appearance: none; /* Remove default arrow */
+    background-color: #fff; /* Background color */
+    background-position: right 10px center; /* Position arrow */
+    background-size: 12px 12px; /* Size arrow */
+    color: #999; /* Default text color */
+}
+
+#description option {
+    color: #333; /* Normal option text color */
+}
+
+#description option[disabled] {
+    color: #999; /* Placeholder text color */
+}
+
+/* Apply color for the selected placeholder */
+#description:invalid {
+    color: #999;
+}
+
+
+
+/*==footer============================*/
+footer{
+    background-color: #1b1d1f;
+    padding: 50px 20px;
+    border-top: 5px solid #4eb060;
+}
+.footer-container{
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.footer-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo a{
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.footer-logo a span{
+    color: #4eb060;
+}
+
+
+/*==Making-Responsive===================================*/
+.menu-icon,
+.menu-btn{
+    display: none;
+}
+@media(max-width:1280px){
+    #search-banner{
+        width:1150px;
+    }
+}
+@media(max-width:1200px){
+    #search-banner{
+        width:90%;
+        height: 500px;
+    }
+    #popular-bundle-pack,
+    #popular-product,
+    #download-app{
+        width: 90%;
+    }
+    #popular-bundle-pack{
+        padding: 50px 30px 0px 30px;
+    }
+}
+@media(max-width:1050px){
+    .bg-1{
+        width: 150px;
+        height: 150px;
+        top: -20px;
+    }
+    #search-banner{
+        background-size: 700px;
+    }
+    #category,
+    #partner{
+        width: 90%;
+    }
+}
+@media(max-width:965px){
+    .navigation{
+        justify-content: space-between;
+        height: 65px;
+        padding: 35px 25px;
+    }
+    .logo{
+        font-size: 1.2rem;
+    }
+    .navigation .menu{
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        z-index: 100;
+        background-color: #ffffff;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        border-bottom: 1px solid rgba(245,245,245);
+    }
+    .navigation .menu li{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .navigation .menu li a{
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding: 30px 20px;
+        margin: 0px;
+        border: 1px solid rgba(248,247,247,0.5);
+    }
+    .menu-icon{
+        display: block;
+    }
+    .navigation .menu-icon{
+        cursor: pointer;
+        float: right;
+        padding: 5px;
+        position: relative;
+        user-select: none;
+        z-index: 2;
+    }
+    .navigation .menu-icon .nav-icon{
+        background-color: #141414cc;
+        display: block;
+        height: 2px;
+        width: 25px;
+        position: relative;
+        transition: background 0.2s ease-out;
+    }
+    .navigation .menu-icon .nav-icon::before,
+    .navigation .menu-icon .nav-icon::after{
+        background-color: #141414cc;
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all ease-out 0.2s;
+    }
+    .navigation .menu-icon .nav-icon::before{
+        top: 7px;
+    }
+    .navigation .menu-icon .nav-icon::after{
+        top: -7px;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon::before{
+        transform: rotate(-45deg);
+        top: 0px;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon::after{
+        transform: rotate(45deg);
+        top: 0px;
+    }
+    .navigation .menu-btn:checked ~ .menu-icon .nav-icon{
+        background-color: transparent;
+    } 
+    .navigation .menu-btn:checked ~ .menu{
+        display: block;
+    }   
+ 
+    #search-banner{
+        height: 400px;
+        background-size: 500px;
+    }
+    .bg-2{
+        width: 100px;
+        height: 100px;
+        top: -50px;
+    }
+    .category-container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .category-box{
+        margin: 10px;
+    }
+    .product-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .client-box-container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .partner-heading{
+        justify-content: center;
+    }
+    .logo-container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .logo-container img{
+        margin: 10px;
+        object-fit: cover;
+    }
+    #download-app{
+        flex-direction: column;
+        height: 100%;
+        background-color: transparent;
+        margin-top: 0px;
+        width: 90%;
+        max-width: 100%;
+    }
+    .app-img{
+        height: 450px;
+        width: 220px;
+        object-fit: cover;
+    }
+    .download-app-text{
+        max-width: 100%;
+        background-color: #ecf7ee;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-links{
+        text-align: center;
+    }
+}
+@media(max-width:750px){
+    #search-banner{
+        height: 300px;
+    }
+    .search-banner-text{
+        margin-left: 20px;
+    }
+    .search-banner-text h1{
+        font-size: 2rem;
+        line-height: 30px;
+    }
+    .bg-1{
+        display: none;
+    }
+    .client-box-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media(max-width:500px){
+    #search-banner{
+        height: 200px;
+        background-size: 300px;
+    }
+    .search-banner-text{
+        margin-left: 0px;
+        max-width: 100%;
+    }
+    .search-banner-text h1{
+        font-size: 1.3rem;
+    }
+    .search-box{
+        width: 100%;
+        max-width: 100%;
+        height: 40px;
+        padding-left: 10px;
+    }
+    .search-box i{
+        font-size: 1rem;
+    }
+    .search-box .search-btn{
+        height: 30px;
+    }
+    .category-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+    }
+    .category-box{
+        width: 100%;
+        margin: 0px;
+    }
+    .product-container{
+        grid-template-columns: 1fr;
+    }
+    #popular-bundle-pack{
+        padding: 30px 20px 0px 20px;
+    }
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+    .footer-links{
+        margin-top: 10px;
+    }
+}
+@media(max-width:400px){
+    .category-heading h2,
+    .product-heading h3,
+    .client-heading h3,
+    .partner-heading h3{
+        font-size: 1.2rem;
+    }
+}
+@media(max-width:350px){
+    .download-btns{
+        flex-direction: column;
+    }
+    .download-btns a{
+        margin: 4px 0px;
+        width: 140px;
+    }
+    .download-btns a img{
+        width: 100%;
+        object-fit: cover;
+    }
+    .right-nav{
+        grid-gap: 5px;
+    }
+}
+
+
