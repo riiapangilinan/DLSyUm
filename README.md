@@ -1,14 +1,13 @@
-DLSyUm
-
+# DLSyUm
 A restaurant review web application.
 
-Description
+# Description
 DLSyUm is a comprehensive web application designed to provide users with an interactive platform to review 
 and discover restaurants. Users can browse through various establishments, read detailed reviews, and contribute 
 their own insights. The application ensures a user-friendly experience, allowing visitors to view top-rated 
 restaurants, leave feedback, and engage with other food enthusiasts.
 
-Dependencies
+# Dependencies
 To ensure the application runs smoothly, the following dependencies and prerequisites are required:
 1. Operating System: MacOS Sonoma 14.2.1
 2. Browsers: Optimized for Safari on MacOS. Other browsers and devices might not provide the full functionality.
@@ -16,9 +15,9 @@ To ensure the application runs smoothly, the following dependencies and prerequi
 4. Node.js and NPM: Required for running the server and managing packages.
 5. NVM (Node Version Manager): Recommended for managing Node.js versions.
 
-Installing from Terminal
+# Installing from Terminal
 1. Download MongoDB Community Server:
-    Go to the MongoDB website.
+   Go to the MongoDB website.
     Navigate to Products > Community Edition > Community Server.
     Select the appropriate package for your Mac OS version (ARM for M-chips or x64 for Intels).
     Download the .tgz package.
@@ -46,7 +45,7 @@ In our case it's
     sudo mongod --dbpath=/Users/riialindseypangilinan/data/db
 
 
-Executing program on Node.js from Terminal
+# Executing program on Node.js from Terminal
 1. Open Terminal
 2. Check if .zshrc file exists:
     ls -al
@@ -76,13 +75,13 @@ In our case it's
     node /Users/riialindseypangilinan/Downloads/vscode/CCAPDEV/Grp7_MCO2/server.js 
 
 
-Help
+# Help
 Please do watch the "mockup demo.mov" for a runthrough of DLSyUm.
 This README file currently includes instructions for MacOS only. Instructions for Windows will be added soon, 
 as this was made in the very last minute.
 
 
-Authors
+# Authors
 Acosta, Axel Toby
 Cosue, Alexis Maureen
 Pangilinan, Riia Lindsey
