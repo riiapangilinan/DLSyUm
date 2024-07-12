@@ -1,0 +1,48 @@
+<nav class="navigation">
+    <a href="/" class="logo">
+        <span>DLS</span>y<span>U</span>m
+    </a>
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#" id="logout-link">Logout</a></li>
+    </ul> 
+</nav>
+<main>
+    <section id="profile-details">
+        <div class="profile-container">
+            <div id="user-info">
+                <!-- User info will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+    <section id="edit-profile">
+        <div class="profile-container">
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="profile-picture">Profile Picture</label>
+                    <input type="file" id="profile-picture" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4" placeholder="Enter your description..."></textarea>
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a href="#"><span>DLS</span>y<span>U</span>m</a>
+            <div class="footer-social">
+                <a href="#"><i class="fas fa-hamburger"></i></a>
+                <a href="#"><i class="fas fa-drumstick-bite"></i></a>
+                <a href="#"><i class="fas fa-pizza-slice"></i></a>
+                <a href="#"><i class="fas fa-apple-alt"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/edit-profile.js"></script>
