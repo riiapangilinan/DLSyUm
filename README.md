@@ -82,13 +82,13 @@ as this was made in the very last minute.
 
 
 # Authors
-Acosta, Axel Toby
-Cosue, Alexis Maureen
-Pangilinan, Riia Lindsey
-Punongbayan, Richard Daniel
+- Acosta, Axel Toby
+- Cosue, Alexis Maureen
+- Pangilinan, Riia Lindsey
+- Punongbayan, Richard Daniel
 
 
-Acknowledgments
-Running the MongoDB server https://www.youtube.com/watch?v=8gUQL2zlpvI
-Installing Node Version Manager https://github.com/nvm-sh/nvm
-Implementing Node.js https://www.youtube.com/watch?v=I8H4wolRFBk
+# Acknowledgments
+- Running the MongoDB server https://www.youtube.com/watch?v=8gUQL2zlpvI
+- Installing Node Version Manager https://github.com/nvm-sh/nvm
+- Implementing Node.js https://www.youtube.com/watch?v=I8H4wolRFBk
