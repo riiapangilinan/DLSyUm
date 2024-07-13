@@ -1,0 +1,50 @@
+[{
+  "_id": 1,
+  "name": "Prelude Cafe",
+  "rating": 4.5,
+  "description": "Located on Castro Street, Prelude Cafe and Restaurant serves affordable burgers and rice bowls with equally delicious lattes to pair up with. If you’re looking for a place to chat with classmates or post an IG-worthy story, then head on to Prelude Cafe.",
+  "image": "../images/prelude.jpg",
+  "type": "Cafe/restaurant",
+  "username": "prelude_cafe",
+  "password": "prelude"
+},
+{
+  "_id": 2,
+  "name": "El Poco Cantina",
+  "rating": 3.8,
+  "description": "Mexican food might as well be a college student staple alongside cup ramen, because it is very affordable. With no menu item costing over P500 enjoy a filling meal of elotes or birria tacos without breaking the bank.",
+  "image": "../images/elpoco.jpg",
+  "type": "Restaurant",
+  "username": "el_poco_cantina",
+  "password": "elpoco"
+},
+{
+  "_id": 3,
+  "name": "Pho Mahal",
+  "rating": 4,
+  "description": "While college students are known to eat filling but sometimes unhealthy food, Pho Mahal serves Vietnamese cuisine which is known to be very healthy. In this raining in Manila weather, try some heart-warming pho alongside bahn mi to get that extra protein.",
+  "image": "../images/phomahal.jpg",
+  "type": "Restaurant",
+  "username": "pho_mahal",
+  "password": "phomahal"
+},
+{
+  "_id": 4,
+  "name": "La Toca Taqueria",
+  "rating": 5,
+  "description": "Another taqueria, La Toca is best for late-night food trips as they’re open until 3 a.m. Choose from a selection of meats or carnes from pulled pork to chicken, and even sisig. You can even choose whether to have it in a rice bowl, taco, burrito, or quesadilla!",
+  "image": "../images/latoca.png",
+  "type": "Restaurant",
+  "username": "la_toca_taqueria",
+  "password": "latoca"
+},
+{
+  "_id": 5,
+  "name": "The Barn by Borro",
+  "rating": 3.5,
+  "description": "One of Quezon City’s most popular restaurants, Borro, finds a new home in Taft as it takes over the iconic Barn restaurant. Offering delicious yet affordable steaks like t-bone and salisbury, look to the Barn for a source of much-needed energy after a day of acads.",
+  "image": "../images/barn.jpg",
+  "type": "Restaurant",
+  "username": "the_barn_by_borro",
+  "password": "thebarn"
+}]

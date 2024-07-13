@@ -1,0 +1,35 @@
+[{
+  "_id": 1,
+  "username": "chootie03",
+  "password": "etuc",
+  "image": "../images/chootie03.jpg",
+  "description": "A student who loves to code."
+},
+{
+  "_id": 2,
+  "username": "riia",
+  "password": "pangilinan",
+  "image": "../images/riia.jpg",
+  "description": "A frequent traveller."
+},
+{
+  "_id": 3,
+  "username": "lexi",
+  "password": "cosue",
+  "image": "../images/lexi.jpg",
+  "description": "A nutritionist-dietician."
+},
+{
+  "_id": 4,
+  "username": "richard",
+  "password": "punongbayan",
+  "image": "../images/richard.jpg",
+  "description": "A passionate photographer."
+},
+{
+  "_id": 5,
+  "username": "axel",
+  "password": "acosta",
+  "image": "../images/axel.jpg",
+  "description": "A foodie and culinary expert."
+}]
