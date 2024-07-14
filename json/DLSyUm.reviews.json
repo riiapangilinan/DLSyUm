@@ -10,10 +10,12 @@
       "rating": 4,
       "text": "Good place to hang out with friends. The coffee is excellent.",
       "helpful": 5,
-      "unhelpful": 1
+      "unhelpful": 1,
+      "image": "../images/review1.jpg"
+
     },
     {
-      "user": "foodguru",
+      "user": "riia",
       "title": "Slow Service",
       "rating": 3,
       "text": "Coffee was okay, but the service was slow.",
@@ -21,7 +23,7 @@
       "unhelpful": 3
     },
     {
-      "user": "lemonlulu",
+      "user": "richard",
       "title": "Best Coffee in Town",
       "rating": 5,
       "text": "Love this place! Best coffee in town and the staff is amazing.",
@@ -29,7 +31,7 @@
       "unhelpful": 0
     },
     {
-      "user": "emily76",
+      "user": "lexi",
       "title": "Burnt Coffee",
       "rating": 2,
       "text": "Disappointing experience. Coffee tasted burnt.",
@@ -45,7 +47,7 @@
   "establishment_id": 2,
   "reviews": [
     {
-      "user": "aliceguo",
+      "user": "richard",
       "title": "Okay Food",
       "rating": 3,
       "text": "The food was okay, but the service could be improved.",
@@ -53,7 +55,7 @@
       "unhelpful": 4
     },
     {
-      "user": "bobdeater",
+      "user": "lexi",
       "title": "Tasty Mexican Food",
       "rating": 4,
       "text": "Affordable and tasty Mexican food. Will visit again!",
@@ -69,7 +71,7 @@
   "establishment_id": 3,
   "reviews": [
     {
-      "user": "emily12",
+      "user": "riia",
       "title": "Authentic Pho",
       "rating": 5,
       "text": "Absolutely love this place! The pho is authentic and delicious. The staff is friendly and the service is quick.",
@@ -77,7 +79,7 @@
       "unhelpful": 1
     },
     {
-      "user": "davidlee",
+      "user": "axel",
       "title": "Must-try Banh Mi",
       "rating": 4.5,
       "text": "One of the best Vietnamese restaurants in the area. The banh mi sandwiches are a must-try!",
@@ -93,7 +95,7 @@
   "establishment_id": 4,
   "reviews": [
     {
-      "user": "sophia_87",
+      "user": "riia",
       "title": "Variety of Tacos",
       "rating": 5,
       "text": "Love the variety of tacos and the authentic taste. Great place for late-night cravings!",
@@ -101,7 +103,7 @@
       "unhelpful": 0
     },
     {
-      "user": "jamesrock",
+      "user": "lexi",
       "title": "Fantastic Tacos",
       "rating": 4.5,
       "text": "Fantastic tacos and burritos! The carne asada is especially delicious. Highly recommend!",
@@ -117,7 +119,7 @@
   "establishment_id": 5,
   "reviews": [
     {
-      "user": "michael_56",
+      "user": "chootie03",
       "title": "Decent Food",
       "rating": 3,
       "text": "Decent food, but the service was a bit slow. The steak was cooked well, but lacked flavor.",
@@ -125,7 +127,7 @@
       "unhelpful": 2
     },
     {
-      "user": "sarahdu30",
+      "user": "richard",
       "title": "Nice Ambiance",
       "rating": 4,
       "text": "Nice ambiance and good variety on the menu. Enjoyed the steak!",
