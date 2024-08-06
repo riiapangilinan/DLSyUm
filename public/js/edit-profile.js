@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 userInfo.innerHTML = `<p>${data.error}</p>`;
             } else {
                 const user = data.user;
-                currentDescription = user.description; // Store the current description
+                currentDescription = user.description; 
                 userInfo.innerHTML = `
                     <div class="profile-header">
                         <img src="${user.image}" alt="${user.username}">
@@ -47,12 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const image = document.getElementById('profile-picture').files[0];
         let description = document.getElementById('description').value.trim();
 
-        // Use current description if the new description is empty
         if (!description) {
             description = currentDescription;
         }
 
-        // Validation: Check if an image is attached or description is provided
         if (!image && description === currentDescription) {
             alert('Please provide a new image or description to update your profile.');
             return;
@@ -60,8 +58,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData();
         if (image) {
-            formData.append('image', image);
+            const reader = new FileReader();
+            reader.onload = function() {
+                const imageBase64 = reader.result;
+                formData.append('image', dataURLToBlob(imageBase64));
+                submitFormData(formData, description);
+            };
+            reader.readAsDataURL(image);
+        } else {
+            submitFormData(formData, description);
         }
+    });
+
+    function submitFormData(formData, description) {
         if (description) {
             formData.append('description', description);
         }
@@ -83,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error updating profile:', error);
             alert('Error updating profile.');
         });
-    });
+    }
 
     logoutLink.addEventListener('click', (event) => {
         event.preventDefault();
@@ -107,5 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => console.error('Error during logout:', error));
+    }
+
+    function dataURLToBlob(dataURL) {
+        const binary = atob(dataURL.split(',')[1]);
+        const array = [];
+        for (let i = 0; i < binary.length; i++) {
+            array.push(binary.charCodeAt(i));
+        }
+        return new Blob([new Uint8Array(array)], { type: 'image/jpeg' });
     }
 });

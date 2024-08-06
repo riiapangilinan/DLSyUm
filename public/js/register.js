@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Username cannot be empty");
             return;
         }
+        
+        if (/\s/.test(username)) {
+            alert("Username cannot contain spaces");
+            return;
+        }
 
         if (password.trim() === '') {
             alert("Password cannot be empty");

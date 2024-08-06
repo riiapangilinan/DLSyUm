@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     checkLoginStatus();
 
-    // Existing initialization code
     const establishmentsList = document.getElementById('establishments-list');
     const ratingFilter = document.getElementById('rating-filter');
     const searchForm = document.querySelector('.search-box');
@@ -118,17 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
         return establishments.filter(establishment => {
             const matchesSearch = establishment.name.toLowerCase().includes(searchTerm.toLowerCase());
-            const establishmentRating = parseFloat(establishment.rating); // Convert rating to float
-    
+            const establishmentRating = parseFloat(establishment.rating);
             console.log(`Establishment ${establishment.name} has rating ${establishmentRating}`);
-    
-            // Check if establishment name matches search term and rating matches filter value
             const matchesRating = ratingValue === 'all' || establishmentRating >= parseFloat(ratingValue);
     
             return matchesSearch && matchesRating;
         });
     }
-    
 
     async function init() {
         const establishments = await fetchEstablishments();
