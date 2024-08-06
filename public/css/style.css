@@ -100,8 +100,6 @@ background-color:#40aa54;}
     color: #40aa54;
     transition: all ease 0.3s;
 }
-
-/* Style for user-greeting */
 #user-greeting {
     display: flex;
     margin-top: 10px;
@@ -109,20 +107,14 @@ background-color:#40aa54;}
     font-weight: 500;
     color: #3b3b3b;
 }
-
-/* Dropdown container */
 .user-dropdown {
     position: relative;
     display: inline-block;
 }
-
-/* Style the user icon */
 .user-dropdown .fas.fa-user {
     font-size: 18px;
     cursor: pointer;
 }
-
-/* Dropdown content */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -135,8 +127,6 @@ background-color:#40aa54;}
     z-index: 1;
     min-width: 120px;
 }
-
-/* Dropdown links */
 .dropdown-content a {
     display: block;
     padding: 8px 16px;
@@ -144,28 +134,18 @@ background-color:#40aa54;}
     text-decoration: none;
     transition: background-color 0.3s;
 }
-
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
     background-color: #f0f0f0;
 }
-
-/* Show the dropdown menu on hover */
 .user-dropdown:hover .dropdown-content {
     display: block;
 }
-
-/* Hover effect for "View Profile" */
 .dropdown-content .view-profile:hover {
     background-color: #f0f0f0;
 }
-
-/* Hover effect for "Edit Profile" */
 .dropdown-content .edit-profile:hover {
     background-color: #f0f0f0;
 }
-
-
 
 
  
@@ -186,7 +166,6 @@ background-color:#40aa54;}
     display: flex;
     align-items: center;
 }
-
 .bg-1{
     position: absolute;
     left: -50px;
@@ -196,7 +175,6 @@ background-color:#40aa54;}
     object-fit: contain;
     object-position: center;
 }
-
 .bg-2{
     position: absolute;
     left: 60%;
@@ -207,7 +185,6 @@ background-color:#40aa54;}
     object-position: center;
     object-fit: contain;
 }
-
 .search-banner-text{
     display: flex;
     flex-direction: column;
@@ -215,19 +192,16 @@ background-color:#40aa54;}
     margin-left: 70px;
     position: relative;
 }
-
 .search-banner-text h1{
     font-size: 3rem;
     line-height: 55px;
     color: #202020;
 }
-
 .search-banner-text strong{
     color: #4eb060;
     font-size: 1.4rem;
     margin-top: 4px;
 }
-
 .search-box{
     background-color: #ffffff;
     height: 50px;
@@ -237,13 +211,11 @@ background-color:#40aa54;}
     padding: 0px 5px 0px 20px;
     border-radius: 30px;
 }
-
 .search-box i{
     font-size: 1.3rem;
     color: #3b3b3b;
     margin: 0px 10px;
 }
-
 .search-box .search-input{
     height: 40px;
     border: none;
@@ -251,7 +223,6 @@ background-color:#40aa54;}
     padding: 0px 10px;
     outline: none;
 }
-
 .search-box .search-btn{
     width:220px;
     height: 40px;
@@ -263,13 +234,10 @@ background-color:#40aa54;}
     cursor: pointer;
     transition: all ease 0.3s;
 }
-
 .search-box .search-btn:hover{
     background-color: #5ccf71;
     transition: all ease 0.3s;
 }
-
-
 
 
 
@@ -313,6 +281,7 @@ background-color:#40aa54;}
 }
 
 
+
 /*==Container Styling========================*/
 .box{
     max-width: 1068px;
@@ -329,6 +298,8 @@ background-color:#40aa54;}
     position: relative;
 }
 
+
+
 /*==Grid Containers========================*/
 .store-container,
 .about {
@@ -337,41 +308,33 @@ background-color:#40aa54;}
     align-items: center;
     margin: 5px 0px;
 }
-
 .about {
     grid-template-columns: repeat(auto-fit, minmax(18rem, auto));
     gap: 2rem;
 }
-
-
 .about-img img{
     border-radius: 20px;
     object-fit: cover;
     width: 100%;
 }
-
 .about-text span{
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 500;
     color:#40aa54; 
 }
-
 .about-text h2{
     font-size: 1.7rem;
 }
-
 .about-text h2:hover {
-    color: #ff5733; /* Change to desired hover color */
+    color: #ff5733;
     cursor: pointer;
     transition: all ease 0.3s;
 }
-
 .about-text p{
     font-size: 0.983rem;
     margin: 1rem 0 1rem;
 }
-
 .cart-btn{
     width:100%;
     height: 40px;
@@ -393,9 +356,44 @@ background-color:#40aa54;}
     transition: all ease 0.3s;
 }
 
-/* Add this to your existing style.css */
 
-/* Establishment container */
+
+/*==About Containers========================*/
+#about {
+    background-color: #ffffff;
+    color: #40aa54;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+.about-heading h1 {
+    font-size: 2.5rem;
+    color: #40aa54;
+}
+.about-heading p {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+.about-content h2 {
+    font-size: 1.8rem;
+    color: #40aa54;
+    margin-top: 20px;
+}
+.about-content p {
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+.about-content a {
+    color: #40aa54; 
+    text-decoration: underline;
+}
+
+
+
+/*==Establishment========================*/
 .establishment-container {
     display: flex;
     flex-wrap: wrap;
@@ -407,87 +405,68 @@ background-color:#40aa54;}
     margin: 20px auto;
     padding: 20px;
 }
-
 .establishment-name {
     color: purple;
 }
-
 #establishment-info {
-    flex-basis: calc(50% - 20px); /* Adjust width based on container padding and gap */
+    flex-basis: calc(50% - 20px);
     padding: 20px;
     text-align: left;
 }
-
 #reviews-list {
-    flex-basis: calc(50% - 20px); /* Adjust width based on container padding and gap */
+    flex-basis: calc(50% - 20px);
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     overflow-y: auto;
-    max-height: 600px; /* Adjust as needed */
+    max-height: 600px; 
 }
-
-.helpful-buttons {
-    float: right; /* Align the buttons to the right */
-}
-
-.helpful-buttons button {
-    margin-left: 5px; /* Add space between the buttons */
-}
-
-.helpful-count, .unhelpful-count {
-    margin-left: 5px; /* Add space between the counts and buttons */
-    font-weight: bold; /* Make the counts bold */
-}
-
-/* Thumbs up and down button styles */
 .helpful-btn, .unhelpful-btn {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
 }
-
 .helpful-btn i, .unhelpful-btn i {
     font-size: 24px;
-    transition: color 0.3s, fill 0.3s;
+    transition: color 0.3s;
 }
-
 .helpful-btn i.far, .unhelpful-btn i.far {
-    color: rgb(0, 0, 0); /* Outline color for thumbs up */
+    color: rgb(0, 0, 0);
 }
-
-.helpful-btn i:hover{
-    color: green; /* Filled color on hover */
+.helpful-btn.clicked i.far {
+    color: green;
 }
-
-.unhelpful-btn i:hover {
-    color: red; /* Filled color for thumbs up when clicked */
-}
-
-.unhelpful-btn i.fas {
-    color: red; /* Filled color for thumbs down when clicked */
-}
-
-.helpful-btn.active {
-    color: green; /* or any color you prefer to indicate the active state */
-}
-
-.unhelpful-btn.active{
+.unhelpful-btn.clicked i.far {
     color: red;
 }
+.helpful-btn i:hover {
+    color: green;
+}
+.unhelpful-btn i:hover {
+    color: red;
+}
+.helpful-buttons {
+    float: right;
+}
+.helpful-buttons button {
+    margin-left: 5px;
+}
+.helpful-count, .unhelpful-count {
+    margin-left: 5px;
+    font-weight: bold;
+}
 
 
 
-
+/*==Reviews========================*/
 #review-form-container {
-    flex-basis: 100%; /* Take full width */
+    flex-basis: 100%;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    margin-top: 20px; /* Add some space between reviews and form */
+    margin-top: 20px;
 }
-
 .review {
     background-color: #f4f4f4;
     padding: 15px;
@@ -495,198 +474,77 @@ background-color:#40aa54;}
     margin-bottom: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .review:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
+.review-reply-container {
+    background-color: #f4f4f4;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid #4eb060;
+    font-size: 0.9em;
+}
+.review-reply p {
+    margin: 5px 0;
+    color: #555;
+}
+.reply-user {
+    color: green;
+}
+.reply-user:hover {
+    color: #a84eb0;
+    transition: color 0.3s;
+}
+.review-user {
+    color: green;
+}
+.review-user:hover {
+    color: #a84eb0;
+    transition: color 0.3s;
+}
 .review p {
     margin: 5px 0;
     color: #555;
 }
-
 .review p strong {
     color: #333;
 }
-
 .review p span {
     font-size: 0.9em;
     color: #777;
 }
-
 .review img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    max-width: 150px; /* Set a smaller max-width for the image */
+    max-width: 150px;
     border-radius: 5px;
-    margin: 10px 0; /* Add some margin to separate the image from the text */
-    display: block;
-    
-}
-
-.review-actions {
-    text-align: right; /* Aligns the container to the right */
-}
-
-.edit-review-link, .delete-review-link{
-    color: green;
-}
-
-.edit-review-link:hover, .delete-review-link:hover{
-    color: #a84eb0; /* Change color on hover */
-    transition: color 0.3s;
-}
-
-.reply-link {
-    color: green;
-}
-
-.reply-link:hover {
-    color: #a84eb0; /* Change color on hover */
-    transition: color 0.3s;
-}
-
-
-
-
-/* Reply container styles */
-.reply-container {
-    margin-top: 10px; /* Add some space between the review and reply container */
-}
-
-.reply-textarea {
-    width: 100%;
-    height: 100px; /* Adjust the height as needed */
-    resize: vertical; /* Allow vertical resizing */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.comment-btn {
-    cursor: pointer;
-    color: black; /* Change the color to make it look clickable */
-    margin-top: 10px; /* Add some space above the "Reply" text */
-    display: inline-block; /* Ensure it's displayed as a block element */
-}
-
-.comment-btn:hover {
-    color: darkblue; /* Change color on hover */
-    text-decoration: none; /* Remove underline on hover */
-}
-
-
-.reply-btn, .cancel-btn {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.reply-btn {
-    background-color: #4eb060;
-    color: #fff;
-}
-
-.cancel-btn {
-    background-color: #dc3545;
-    color: #fff;
-}
-
-/* Reply button hover effect */
-.reply-btn:hover {
-    background-color: #3b8e53;
-    transition: color 0.3s;
-}
-
-/* Cancel button hover effect */
-.cancel-btn:hover {
-    background-color: #c82333;
-    transition: color 0.3s;
-}
-
-
-
-
-.establishment-details h2 {
-    margin-top: 10px;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Establishment container */
-.about {
-    position: relative; /* Add relative positioning to the container */
-}
-
-/* Establishment name */
-.about h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #333;
-    transition: color 0.3s; /* Smooth transition for color change */
-}
-
-/* Hover effect for establishment name */
-.about h2 a:hover,
-.review strong a:hover {
-    color: #a84eb0; /* Change color on hover */
-    transition: color 0.3s;
-}
-
-
-.establishment-details p {
-    font-size: 1em;
-    color: #555;
     margin: 10px 0;
+    display: block;
 }
-
-/* Establishment header */
-.establishment-header {
-    grid-column: span 2;
-    text-align: center;
+.review-actions {
+    text-align: right; 
 }
-
-.establishment-header img {
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-}
-
-
-.read-more {
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.read-more:hover {
-    color: #0056b3;
-}
-
-
-.review-user {
+.edit-review-link, .delete-review-link {
     color: green;
 }
-
-
+.edit-review-link:hover, .delete-review-link:hover {
+    color: #a84eb0;
+    transition: color 0.3s;
+}
 #review-form h3 {
     margin-bottom: 10px;
     font-size: 20px;
 }
-
 #review-form label {
     display: block;
     margin-top: 10px;
 }
-
 #review-form input[type="text"],
 #review-form textarea,
 #review-form select,
@@ -696,13 +554,115 @@ background-color:#40aa54;}
     margin-top: 5px;
     box-sizing: border-box;
 }
+.reply-link {
+    color: green;
+}
+.reply-link:hover {
+    color: #a84eb0;
+    transition: color 0.3s;
+}
+.reply-container {
+    margin-top: 10px;
+}
+.reply-textarea {
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.comment-btn {
+    cursor: pointer;
+    color: black; 
+    margin-top: 10px; 
+    display: inline-block; 
+}
+.comment-btn:hover {
+    color: darkblue; 
+    text-decoration: none; 
+}
+.reply-btn, .cancel-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.reply-btn {
+    background-color: #4eb060;
+    color: #fff;
+}
+.cancel-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+.reply-btn:hover {
+    background-color: #3b8e53;
+    transition: color 0.3s;
+}
+.cancel-btn:hover {
+    background-color: #c82333;
+    transition: color 0.3s;
+}
 
 
 
 
-/* Registration form styles */
 
-/* Form container */
+/*==Index========================*/
+.establishment-details h2 {
+    margin-top: 10px;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+.about {
+    position: relative;
+}
+.about h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+    transition: color 0.3s;
+}
+.about h2 a:hover,
+.review strong a:hover {
+    color: #a84eb0;
+    transition: color 0.3s;
+}
+.establishment-details p {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+.establishment-header {
+    grid-column: span 2;
+    text-align: center;
+}
+.establishment-header img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+.read-more {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.read-more:hover {
+    color: #0056b3;
+}
+.review-user {
+    color: green;
+}
+
+
+
+/*==Registration========================*/
 .form-container {
     max-width: 400px;
     margin: 50px auto;
@@ -711,15 +671,12 @@ background-color:#40aa54;}
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .form-container h2 {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
     color: #333;
 }
-
-/* Form fields */
 #register-form input[type="text"],
 #register-form input[type="password"],
 #register-form textarea {
@@ -730,12 +687,9 @@ background-color:#40aa54;}
     border-radius: 5px;
     font-size: 1em;
 }
-
 #register-form textarea {
     resize: vertical;
 }
-
-/* Adjustments for the Confirm Password field */
 #confirm-password {
     width: 100%;
     margin-bottom: 15px;
@@ -744,23 +698,17 @@ background-color:#40aa54;}
     border-radius: 5px;
     font-size: 1em;
 }
-
-/* Positioning the checkbox beside the label */
 .restaurant-label {
     display: inline-block;
     margin-bottom: 5px;
     font-size: 1em;
     color: #555;
-    vertical-align: middle; /* Align vertically with checkbox */
+    vertical-align: middle;
 }
-
 #restaurant {
-    margin-left: 5px; /* Adjust the margin to create space between label and checkbox */
-    vertical-align: middle; /* Align checkbox vertically with label */
+    margin-left: 5px;
+    vertical-align: middle;
 }
-
-
-/* Profile Picture */
 #profile-picture {
     width: 100%;
     margin-bottom: 15px;
@@ -770,15 +718,11 @@ background-color:#40aa54;}
     border-radius: 5px;
     font-size: 1em;
 }
-
-
-
-/* Submit button */
 #register-form button, #login-form button, #review-form button {
     width: 100%;
     margin-top: 10px;
-    padding: 12px; /* Adjust padding for better button size */
-    background-color: #4eb060; /* Match button color with existing color scheme */
+    padding: 12px; 
+    background-color: #4eb060;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -786,15 +730,12 @@ background-color:#40aa54;}
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 #register-form button:hover, #login-form button:hover, #review-form button  {
-    background-color: #3b8e53; /* Adjust hover color to match existing color scheme */
+    background-color: #3b8e53;
 }
 
 
-/* Login form styles */
-
-/* Form container */
+/*==Log In========================*/
 .form-container {
     max-width: 400px;
     margin: 50px auto;
@@ -803,15 +744,12 @@ background-color:#40aa54;}
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .form-container h2 {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
     color: #333;
 }
-
-/* Form fields */
 #login-form input[type="text"],
 #login-form input[type="password"] {
     width: 100%;
@@ -821,38 +759,31 @@ background-color:#40aa54;}
     border-radius: 5px;
     font-size: 1em;
 }
-
-/* Remember Me checkbox */
 #login-form label {
     font-size: 1em;
     color: #555;
 }
-
 #login-form input[type="checkbox"] {
     margin-right: 5px;
 }
-
-/* Don't have an account? Register link */
 .form-container p {
-    margin-top: 20px; /* Add some space between the form and the link */
-    font-size: 0.9em; /* Decrease font size for better fit */
-    text-align: center; /* Center align the link */
+    margin-top: 20px; 
+    font-size: 0.9em; 
+    text-align: center;
 }
-
 .form-container a {
-    color: #4eb060; /* Match link color with existing color scheme */
-    text-decoration: none; /* Remove underline from the link */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    color: #4eb060; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
 }
-
 .form-container a:hover, .user-dropdown .fas.fa-user:hover {
-    color: #3b8e53; /* Adjust hover color to match existing color scheme */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    color: #3b8e53; 
+    transition: color 0.3s ease; 
 }
 
 
-/* Profile page styles */
-/* Profile header */
+
+/*==Profile========================*/
 .profile-header {
     display: flex;
     align-items: center;
@@ -862,7 +793,6 @@ background-color:#40aa54;}
     margin-bottom: 20px;
     text-align: center;
 }
-
 .profile-header img {
     width: 150px;
     height: 150px;
@@ -870,24 +800,19 @@ background-color:#40aa54;}
     border-radius: 50%;
     margin-bottom: 20px;
 }
-
 .profile-details {
     text-align: center;
 }
-
 .profile-details h2 {
     font-size: 1.8em;
     margin-bottom: 10px;
     color: #333;
 }
-
 .profile-details p {
     font-size: 1em;
     color: #555;
     margin: 5px 200px;
 }
-
-/* Recent activities */
 #recent-activities {
     margin-top: 20px;
     margin-bottom: 50px;
@@ -895,7 +820,6 @@ background-color:#40aa54;}
     flex-direction: column;
     align-items: center;
 }
-
 .activity {
     background-color: #f9f9f9;
     padding: 15px;
@@ -905,22 +829,16 @@ background-color:#40aa54;}
     max-width: 600px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .activity h3 {
     font-size: 1.2em;
     margin-bottom: 5px;
     color: #333;
 }
-
 .activity p {
     font-size: 1em;
     color: #555;
     margin: 5px 0;
 }
-
-/* Add this to your existing CSS */
-
-/* Form container */
 #edit-profile {
     max-width: 400px;
     margin: 50px auto;
@@ -929,15 +847,12 @@ background-color:#40aa54;}
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 #edit-profile h2 {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: center;
     color: #333;
 }
-
-/* Form fields */
 #edit-profile input[type="file"],
 #edit-profile textarea {
     width: 100%;
@@ -947,12 +862,9 @@ background-color:#40aa54;}
     border-radius: 5px;
     font-size: 1em;
 }
-
 #edit-profile textarea {
     resize: vertical;
 }
-
-/* Submit button */
 #edit-profile button {
     width: 100%;
     margin-top: 10px;
@@ -965,17 +877,12 @@ background-color:#40aa54;}
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 #edit-profile button:hover {
     background-color: #3b8e53;
 }
-
-/* Adjustments for Profile Picture input */
 #profile-picture {
     margin-bottom: 15px;
 }
-
-/* Style for dropdown to match input fields */
 #description {
     width: 100%;
     margin-bottom: 15px;
@@ -983,29 +890,25 @@ background-color:#40aa54;}
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
-    appearance: none; /* Remove default arrow */
-    background-color: #fff; /* Background color */
-    background-position: right 10px center; /* Position arrow */
-    background-size: 12px 12px; /* Size arrow */
-    color: #999; /* Default text color */
+    appearance: none;
+    background-color: #fff; 
+    background-position: right 10px center; 
+    background-size: 12px 12px; 
+    color: #999;
 }
-
 #description option {
-    color: #333; /* Normal option text color */
+    color: #333;
 }
-
 #description option[disabled] {
-    color: #999; /* Placeholder text color */
+    color: #999;
 }
-
-/* Apply color for the selected placeholder */
 #description:invalid {
     color: #999;
 }
 
 
 
-/*==footer============================*/
+/*==Footer============================*/
 footer{
     background-color: #1b1d1f;
     padding: 50px 20px;
