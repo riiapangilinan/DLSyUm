@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "DLSyUm is a restaurant review web application.",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -19,8 +20,9 @@
     "handlebars": "^4.7.8",
     "mongo": "^0.1.0",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.0",
+    "mongoose": "^8.5.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1"
-  }
+  },
+  "keywords": []
 }

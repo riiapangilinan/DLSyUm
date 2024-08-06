@@ -1,3 +1,14 @@
+/***************************************************************************
+    DLSyUm: A Restaurant Review Web Application.
+    
+    Acosta, Axel Toby               S19
+    Cosue, Alexis Maureen           S19
+    Pangilinan, Riia Lindsey        S19
+    Punongbayan, Richard Daniel     S19
+***************************************************************************/
+
+
+/* Import required modules */
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
@@ -10,39 +21,55 @@ const compression = require('compression');
 const morgan = require('morgan');
 const { create } = require('express-handlebars');
 
+const bcrypt = require('bcryptjs');
+const saltRounds = 10;
 
+/* Initialize the express application */
 const app = express();
 const port = 3000;
 
+let client;
+
+/* MongoDB connection URL and database name */
 const url = 'mongodb://localhost:27017';
 const dbName = 'DLSyUm';
 let db;
 
+/* Middleware to compress responses */
 app.use(compression());
+
+/* Middleware to serve static files from the public directory */
 app.use(express.static(path.join(__dirname, 'public'), {
     maxAge: '1d',
     etag: false
 }));
+
+/* Middleware to parse JSON request bodies */
 app.use(bodyParser.json());
+
+/* Middleware to parse cookies */
 app.use(cookieParser());
+
+/* Middleware to log HTTP requests */
 app.use(morgan('combined'));
 
-// Configure express-handlebars
+/* Configure express-handlebars template engine */
 const hbs = create({
     extname: '.handlebars',
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'views', 'layouts')
 });
-
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
+/* Directory for storing uploaded images */
 const imagesDir = path.join(__dirname, 'public', 'images');
 if (!fs.existsSync(imagesDir)) {
     fs.mkdirSync(imagesDir, { recursive: true });
 }
 
+/* Multer storage configuration for file uploads */
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, imagesDir);
@@ -53,10 +80,11 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+/* Function to connect to the MongoDB database */
 async function connectToDatabase() {
     try {
-        const client = await MongoClient.connect(url, {
-            serverSelectionTimeoutMS: 5000, // 5 seconds
+        client = await MongoClient.connect(url, {
+            serverSelectionTimeoutMS: 5000,
         });
         db = client.db(dbName);
         console.log(`Connected to database ${dbName}`);
@@ -66,41 +94,113 @@ async function connectToDatabase() {
     }
 }
 
+/* Connect to the database */
 connectToDatabase();
 
+/* Import JSON files to MongoDB upon server launch: */
+function transformData(data) {
+    return data.map(item => {
+        if (item._id && item._id.$oid) {
+            item._id = ObjectId.createFromHexString(item._id.$oid);
+        }
+        return item;
+    });
+}
+
+/* Import database JSON files to MongoDB */
+async function importJSONToMongoDB() {
+    const client = new MongoClient(url);
+    try {
+        await client.connect();
+        const db = client.db(dbName);
+
+        /* Define the JSON files and their corresponding  */
+        const collections = [
+            { file: 'DLSyUm.establishments.json', collection: 'establishments' },
+            { file: 'DLSyUm.reviews.json', collection: 'reviews' },
+            { file: 'DLSyUm.users.json', collection: 'users' }
+        ];
+
+        for (const { file, collection } of collections) {
+            const filePath = path.join(__dirname, 'json', file); // Updated to include the 'json' directory
+            const rawData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            const data = transformData(rawData);
+            const dbCollection = db.collection(collection);
+
+            /* Clear existing data (optional) */
+            await dbCollection.deleteMany({});
+
+            /* Insert data into MongoDB */
+            await dbCollection.insertMany(data);
+            console.log(`Data imported successfully into ${collection} collection`);
+        }
+    } catch (err) {
+        console.error('Error importing data:', err);
+    } finally {
+        await client.close();
+    }
+}
+
+/* Start the server and listen on the specified port */
+app.listen(port, async () => {
+    console.log(`Server is running on http://localhost:${port}`);
+
+    await importJSONToMongoDB(); 
+});
+
+
+
+
+/* Route to render the home page */
 app.get('/', (req, res) => {
     res.render('index', { title: 'DLSyUm' });
 });
 
+/* Route to render the login page */
 app.get('/login', (req, res) => {
     res.render('login', { title: 'Login' });
 });
 
+/* Route to render the registration page */
 app.get('/register', (req, res) => {
     res.render('register', { title: 'Register' });
 });
 
+/* Route to render the profile page */
 app.get('/profile', (req, res) => {
     res.render('profile', { title: 'Profile' });
 });
 
+/* Route to render the create establishment page */
 app.get('/createestablishment', (req, res) => {
     res.render('createestablishment', { title: 'Create Establishment' });
 });
 
+/* Route to render the edit profile page */
 app.get('/edit-profile', (req, res) => {
     res.render('edit-profile', { title: 'Edit Profile' });
 });
 
+/* Route to render the forgot password page */
 app.get('/forgotpass', (req, res) => {
     res.render('forgotpass', { title: 'Forgot Password' });
 });
 
+/* Route to render the establishment page */
 app.get('/establishment', (req, res) => {
     res.render('establishment', { title: 'Establishment' });
 });
 
+/* Route to render the about page */
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About Us' });
+});
 
+
+
+
+
+/* API endpoint to fetch all establishments or by username */
 app.get('/api/establishments', async (req, res) => {
     const { username } = req.query;
     let query = {};
@@ -117,6 +217,7 @@ app.get('/api/establishments', async (req, res) => {
 });
 
 
+/* API endpoint to fetch a specific establishment by ID */
 app.get('/api/establishments/:id', async (req, res) => {
     const establishmentId = parseInt(req.params.id);
     if (isNaN(establishmentId)) {
@@ -137,6 +238,8 @@ app.get('/api/establishments/:id', async (req, res) => {
     }
 });
 
+
+/* API route to handle reviews for an establishment */
 app.route('/api/reviews/:id')
     .get(async (req, res) => {
         const establishmentId = parseInt(req.params.id);
@@ -157,7 +260,7 @@ app.route('/api/reviews/:id')
             res.status(500).json({ error: 'Failed to fetch reviews' });
         }
     })
-    .post(upload.single('image'), async (req, res) => { 
+    .post(upload.single('image'), async (req, res) => {
         const establishmentId = parseInt(req.params.id);
         if (isNaN(establishmentId)) {
             res.status(400).json({ error: 'Invalid establishment ID' });
@@ -170,8 +273,8 @@ app.route('/api/reviews/:id')
             return;
         }
 
-        const { title, text, rating } = req.body; 
-        const image = req.file ? `/images/${req.file.filename}` : ''; 
+        const { title, text, rating } = req.body;
+        const image = req.file ? `/images/${req.file.filename}` : '';
 
         if (!title || !text || !rating) {
             res.status(400).json({ error: 'Please provide all required fields' });
@@ -182,10 +285,11 @@ app.route('/api/reviews/:id')
             user: username,
             title,
             rating: parseInt(rating),
-            text: text, 
+            text: text,
             helpful: 0,
             unhelpful: 0,
-            image: image || '' 
+            image: image || '',
+            replies: [] 
         };
 
         try {
@@ -194,14 +298,27 @@ app.route('/api/reviews/:id')
                 { $push: { reviews: newReview } },
                 { upsert: true }
             );
+
+            const reviews = await db.collection('reviews').findOne({ establishment_id: establishmentId });
+            if (reviews && reviews.reviews.length > 0) {
+                const averageRating = reviews.reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.reviews.length;
+                const roundedAverageRating = parseFloat(averageRating.toFixed(2)); 
+
+                await db.collection('establishments').updateOne(
+                    { _id: establishmentId },
+                    { $set: { rating: roundedAverageRating } }
+                );
+            }
+
             res.json({ success: true, message: 'Review submitted successfully' });
         } catch (err) {
             console.error('Error submitting review:', err);
             res.status(500).json({ error: 'Failed to submit review' });
         }
-    });
+});
 
 
+/* API endpoint to update a review by a specific user for an establishment */
 app.put('/api/reviews/:id/:user', async (req, res) => {
     const establishmentId = parseInt(req.params.id);
     const username = req.params.user;
@@ -228,6 +345,17 @@ app.put('/api/reviews/:id/:user', async (req, res) => {
             return res.status(404).json({ error: 'Review not found or user not authorized' });
         }
 
+        const reviews = await db.collection('reviews').findOne({ establishment_id: establishmentId });
+        if (reviews && reviews.reviews.length > 0) {
+            const averageRating = reviews.reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.reviews.length;
+            const roundedAverageRating = parseFloat(averageRating.toFixed(2)); 
+
+            await db.collection('establishments').updateOne(
+                { _id: establishmentId },
+                { $set: { rating: roundedAverageRating } }
+            );
+        }
+
         res.json({ success: true, message: 'Review updated successfully' });
     } catch (err) {
         console.error(`Error updating review for establishment ${establishmentId} and user ${username}:`, err);
@@ -235,6 +363,8 @@ app.put('/api/reviews/:id/:user', async (req, res) => {
     }
 });
 
+
+/* API endpoint to delete a review by a specific user for an establishment */
 app.delete('/api/reviews/:id/:user', async (req, res) => {
     const establishmentId = parseInt(req.params.id);
     const username = req.params.user;
@@ -256,6 +386,22 @@ app.delete('/api/reviews/:id/:user', async (req, res) => {
             return res.status(404).json({ error: 'Review not found or user not authorized' });
         }
 
+        const reviews = await db.collection('reviews').findOne({ establishment_id: establishmentId });
+        if (reviews && reviews.reviews.length > 0) {
+            const averageRating = reviews.reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.reviews.length;
+            const roundedAverageRating = parseFloat(averageRating.toFixed(2));
+
+            await db.collection('establishments').updateOne(
+                { _id: establishmentId },
+                { $set: { rating: roundedAverageRating } }
+            );
+        } else {
+            await db.collection('establishments').updateOne(
+                { _id: establishmentId },
+                { $set: { rating: null } }
+            );
+        }
+
         res.json({ success: true, message: 'Review deleted successfully' });
     } catch (err) {
         console.error(`Error deleting review for establishment ${establishmentId} and user ${username}:`, err);
@@ -263,8 +409,143 @@ app.delete('/api/reviews/:id/:user', async (req, res) => {
     }
 });
 
-    
-// Validate description
+
+/* API endpoint to reply as establishment owner */
+app.post('/api/reviews/:establishmentId/:username/reply', async (req, res) => {
+    const { establishmentId, username } = req.params;
+    const { title, text } = req.body;
+
+    if (!text) {
+        return res.status(400).json({ error: 'Reply text is required' });
+    }
+
+    try {
+        const result = await db.collection('reviews').updateOne(
+            { establishment_id: parseInt(establishmentId), 'reviews.user': username, 'reviews.title': title },
+            { $push: { 'reviews.$.replies': { text: text } } }
+        );
+
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+
+        res.status(200).json({ success: true });
+    } catch (error) {
+        console.error('Error adding reply:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+/* API endpoint to increment the helpful count of a review */
+app.post('/api/reviews/:establishmentId/:username/helpful', async (req, res) => {
+    const establishmentId = parseInt(req.params.establishmentId);
+    const username = req.params.username;
+
+    if (isNaN(establishmentId)) {
+        return res.status(400).json({ error: 'Invalid establishment ID' });
+    }
+
+    try {
+        const result = await db.collection('reviews').updateOne(
+            { establishment_id: establishmentId, 'reviews.user': username },
+            { $inc: { 'reviews.$.helpful': 1 } }
+        );
+
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+
+        res.json({ success: true, message: 'Helpful count updated' });
+    } catch (err) {
+        console.error('Error updating helpful count:', err);
+        res.status(500).json({ error: 'Failed to update helpful count' });
+    }
+});
+
+
+// API endpoint to decrement the helpful count of a review
+app.delete('/api/reviews/:establishmentId/:username/helpful', async (req, res) => {
+    const establishmentId = parseInt(req.params.establishmentId);
+    const username = req.params.username;
+
+    if (isNaN(establishmentId)) {
+        return res.status(400).json({ error: 'Invalid establishment ID' });
+    }
+
+    try {
+        const result = await db.collection('reviews').updateOne(
+            { establishment_id: establishmentId, 'reviews.user': username },
+            { $inc: { 'reviews.$.helpful': -1 } }
+        );
+
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+
+        res.json({ success: true, message: 'Helpful count updated' });
+    } catch (err) {
+        console.error('Error updating helpful count:', err);
+        res.status(500).json({ error: 'Failed to update helpful count' });
+    }
+});
+
+
+/* API endpoint to decrement the unhelpful count of a review */
+app.delete('/api/reviews/:establishmentId/:username/unhelpful', async (req, res) => {
+    const establishmentId = parseInt(req.params.establishmentId);
+    const username = req.params.username;
+
+    if (isNaN(establishmentId)) {
+        return res.status(400).json({ error: 'Invalid establishment ID' });
+    }
+
+    try {
+        const result = await db.collection('reviews').updateOne(
+            { establishment_id: establishmentId, 'reviews.user': username },
+            { $inc: { 'reviews.$.unhelpful': -1 } }
+        );
+
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+
+        res.json({ success: true, message: 'Unhelpful count updated' });
+    } catch (err) {
+        console.error('Error updating unhelpful count:', err);
+        res.status(500).json({ error: 'Failed to update unhelpful count' });
+    }
+});
+
+
+/* API endpoint to increment the unhelpful count of a review */
+app.post('/api/reviews/:establishmentId/:username/unhelpful', async (req, res) => {
+    const establishmentId = parseInt(req.params.establishmentId);
+    const username = req.params.username;
+
+    if (isNaN(establishmentId)) {
+        return res.status(400).json({ error: 'Invalid establishment ID' });
+    }
+
+    try {
+        const result = await db.collection('reviews').updateOne(
+            { establishment_id: establishmentId, 'reviews.user': username },
+            { $inc: { 'reviews.$.unhelpful': 1 } }
+        );
+
+        if (result.modifiedCount === 0) {
+            return res.status(404).json({ error: 'Review not found' });
+        }
+
+        res.json({ success: true, message: 'Unhelpful count updated' });
+    } catch (err) {
+        console.error('Error updating unhelpful count:', err);
+        res.status(500).json({ error: 'Failed to update unhelpful count' });
+    }
+});
+
+
+/* API endpoint to validate user description */
 app.get('/api/validate-description', async (req, res) => {
     const { username, description } = req.query;
 
@@ -282,7 +563,7 @@ app.get('/api/validate-description', async (req, res) => {
 });
 
 
-// Fetch all users (this route already exists in your code)
+/* API endpoint to fetch all users */
 app.get('/api/users', async (req, res) => {
     try {
         const users = await db.collection('users').find().toArray();
@@ -293,7 +574,8 @@ app.get('/api/users', async (req, res) => {
     }
 });
 
-// Handle password update
+
+/* API endpoint to handle password update */
 app.post('/api/update-password', async (req, res) => {
     const { username, description, password } = req.body;
 
@@ -303,9 +585,12 @@ app.post('/api/update-password', async (req, res) => {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
+        // Hash the new password
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+
         const result = await db.collection('users').updateOne(
             { username, description },
-            { $set: { password } }
+            { $set: { password: hashedPassword } }
         );
 
         if (result.modifiedCount > 0) {
@@ -319,6 +604,8 @@ app.post('/api/update-password', async (req, res) => {
     }
 });
 
+
+/* API endpoint to fetch user profile along with reviews */
 app.get('/api/user-profile', async (req, res) => {
     const username = req.query.username || req.cookies.username;
 
@@ -345,6 +632,7 @@ app.get('/api/user-profile', async (req, res) => {
 });
 
 
+/* API endpoint to update user profile */
 app.post('/api/update-profile', upload.single('image'), async (req, res) => {
     const username = req.cookies.username;
     if (!username) {
@@ -356,7 +644,7 @@ app.post('/api/update-profile', upload.single('image'), async (req, res) => {
         let image;
 
         if (req.file) {
-            image = `../images/${req.file.filename}`;
+            image = `/images/${req.file.filename}`;
         }
 
         const updateData = { description };
@@ -386,6 +674,7 @@ app.post('/api/update-profile', upload.single('image'), async (req, res) => {
 });
 
 
+/* API endpoint to register a new user */
 app.post('/api/registeruser', upload.single('image'), async (req, res) => {
     const { username, password, description } = req.body;
     let image;
@@ -408,11 +697,12 @@ app.post('/api/registeruser', upload.single('image'), async (req, res) => {
         }
 
         const userId = (await db.collection('users').countDocuments()) + 1;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         const newUser = {
             _id: userId,
             username,
-            password,
+            password: hashedPassword,
             image,
             description,
         };
@@ -425,6 +715,8 @@ app.post('/api/registeruser', upload.single('image'), async (req, res) => {
     }
 });
 
+
+/* API endpoint to register a new establishment */
 app.post('/api/registerestablishment', upload.single('image'), async (req, res) => {
     const { username, password, description, name, type } = req.body;
     let image;
@@ -441,16 +733,17 @@ app.post('/api/registerestablishment', upload.single('image'), async (req, res) 
             return res.status(400).json({ success: false, message: 'Username already exists.' });
         }
 
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
         const establishmentId = (await db.collection('establishments').countDocuments()) + 1;
 
         const newEstablishment = {
             _id: establishmentId,
             username,
-            password,
+            password: hashedPassword,
             name,
             type,
             description,
-            image: image, 
+            image,
             rating: 0,
         };
 
@@ -462,6 +755,8 @@ app.post('/api/registerestablishment', upload.single('image'), async (req, res) 
     }
 });
 
+
+/* API endpoint to check if a username already exists */
 app.get('/api/checkusername', async (req, res) => {
     const { username } = req.query;
 
@@ -484,6 +779,8 @@ app.get('/api/checkusername', async (req, res) => {
     }
 });
 
+
+/* API endpoint to fetch all restaurants */
 app.get('/api/restaurants', async (req, res) => {
     try {
         const restaurants = await db.collection('users').find({ isRestaurant: true }).toArray();
@@ -494,19 +791,26 @@ app.get('/api/restaurants', async (req, res) => {
     }
 });
 
+
+/* API endpoint for login */
 app.post('/api/login', async (req, res) => {
     const { username, password, remember } = req.body;
 
     try {
-        const user = await db.collection('users').findOne({ username, password });
-        const establishment = await db.collection('establishments').findOne({ username, password });
-
-        if (user || establishment) {
+        const user = await db.collection('users').findOne({ username });
+        if (user && await bcrypt.compare(password, user.password)) {
             res.cookie('username', username, { httpOnly: true, path: '/' });
-            res.json({ success: true });
-        } else {
-            res.status(401).json({ success: false, message: 'Invalid username or password' });
+            res.cookie('type', 'user', { httpOnly: true, path: '/' });
+            return res.json({ success: true });
         }
+        const establishment = await db.collection('establishments').findOne({ username });
+        if (establishment && await bcrypt.compare(password, establishment.password)) {
+            res.cookie('username', username, { httpOnly: true, path: '/' });
+            res.cookie('type', 'establishment', { httpOnly: true, path: '/' }); 
+            return res.json({ success: true });
+        }
+
+        res.status(401).json({ success: false, message: 'Invalid username or password' });
     } catch (err) {
         console.error('Error during login:', err);
         res.status(500).json({ success: false, message: 'An error occurred during login' });
@@ -514,12 +818,35 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-
+/* API endpoint for user logout */
 app.post('/api/logout', (req, res) => {
     res.clearCookie('username');
     res.json({ success: true, message: 'Logged out successfully' });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+
+/* Graceful shutdown handling */
+function closeDatabaseConnection() {
+    if (client) {
+        client.close().then(() => {
+            console.log('MongoDB connection closed');
+        }).catch(err => {
+            console.error('Error closing MongoDB connection:', err);
+        });
+    }
+}
+
+process.on('SIGINT', () => {
+    console.log('SIGINT signal received: closing MongoDB connection');
+    closeDatabaseConnection();
+    process.exit(0);
 });
+
+process.on('SIGTERM', () => {
+    console.log('SIGTERM signal received: closing MongoDB connection');
+    closeDatabaseConnection();
+    process.exit(0);
+});
+
+/* Close MongoDB connection upon server termination */
+process.on('exit', closeDatabaseConnection);
