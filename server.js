@@ -31,7 +31,7 @@ const port = 3000;
 let client;
 
 /* MongoDB connection URL and database name */
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb+srv://DLSyUm-User:dlsyum@dlsyum.frgksot.mongodb.net/DLSyUm?retryWrites=true&w=majority&appName=DLSyUm';
 const dbName = 'DLSyUm';
 let db;
 
