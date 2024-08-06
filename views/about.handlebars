@@ -1,0 +1,73 @@
+<meta charset="UTF-8">
+<nav class="navigation">
+    <a href="/" class="logo">
+        <span>DLS</span>y<span>U</span>m
+    </a>
+    <ul class="menu" id="main-nav">
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="/register">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+    <ul class="right-nav" id="logged-in-nav" style="display: none;">
+        <span id="user-greeting"></span> 
+        <div class="user-dropdown">
+            <a href="#" class="cart" id="view-profile">
+                <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-content" id="user-dropdown-content">
+                <div class="profile-link">
+                    <a href="#" id="view-link">View</a>
+                </div>
+                <div class="profile-link">
+                    <a href="/edit-profile">Edit</a>
+                </div>
+                <div class="profile-link">
+                    <a href="#" id="logout-link">Logout</a>
+                </div>
+            </div>
+        </div>
+    </ul>
+</nav>
+<section id="about">
+    <div class="about-heading">
+        <h1>About Us</h1>
+        <p>
+            Acosta, Axel Toby S.<br>
+            Cosue, Alexis Maureen D.<br>
+            Pangilinan, Riia Lindsey G. <br>
+            Punongbayan, Richard Daniel D.<br>
+        </p>
+    </div>
+    <div class="about-content">
+        <h2>Our NPM Packages</h2>
+        <p>
+            body-parser<br>
+            compression<br>
+            cookie-parser<br>
+            dotenv<br>
+            express<br>
+            express-handlebars<br>
+            handlebars<br>
+            mongo<br>
+            mongodb<br>
+            mongoose<br>
+            multer<br>
+            bcrypt<br>
+        </p>
+    </div>
+</section>
+<footer>
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a href="#"><span>DLS</span>y<span>U</span>m</a>
+            <div class="footer-social">
+                <a href="#"><i class="fas fa-hamburger"></i></a>
+                <a href="#"><i class="fas fa-drumstick-bite"></i></a>
+                <a href="#"><i class="fas fa-pizza-slice"></i></a>
+                <a href="#"><i class="fas fa-apple-alt"></i></a>
+            </div>
+            <a href="/about">About</a>
+        </div>
+    </div>
+</footer>
+<script src="../js/about.js"></script>
