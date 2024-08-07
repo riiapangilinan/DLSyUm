@@ -24,7 +24,7 @@ const { create } = require('express-handlebars');
 
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const { envPort, sessionKey } = require('./config');
+const { envPort, sessionKey, dbURL } = require('./config');
 
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
@@ -41,7 +41,7 @@ const port = envPort || 3000;
 let client;
 
 const store = new MongoDBStore({
-    uri: process.env.MONGODB_URI,
+    uri: dbURL,
     collection: 'mySessions'
 });
 
@@ -59,7 +59,7 @@ app.use(session({
 
 
 /* MongoDB connection URL and database name */
-const url = process.env.MONGODB_URL;
+const url = dbURL || 'mongodb+srv://DLSyUm-User:dlsyum@dlsyum.frgksot.mongodb.net/DLSyUm?retryWrites=true&w=majority&appName=dlsyum-app';
 const dbName = 'DLSyUm';
 let db;
 
