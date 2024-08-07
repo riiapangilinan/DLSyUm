@@ -9,26 +9,54 @@
 
 
 /* Import required modules */
+require ('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const multer = require('multer');
+const multer = require('multer'); 
 const fs = require('fs');
 const compression = require('compression');
 const morgan = require('morgan');
 const { create } = require('express-handlebars');
 
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+const { envPort, sessionKey } = require('./config');
+
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
+// Debugging: Check if environment variables are loaded correctly
+console.log('PORT:', process.env.PORT);
+console.log('MONGODB_URL:', process.env.MONGODB_URL);
+console.log('SESSION_SECRET:', process.env.SESSION_SECRET);
+
 /* Initialize the express application */
 const app = express();
-const port = 3000;
+const port = envPort || 3000;
 
 let client;
+
+const store = new MongoDBStore({
+    uri: process.env.MONGODB_URI,
+    collection: 'mySessions'
+});
+
+store.on('error', function(error) {
+    console.error('Session store error:', error);
+});
+
+app.use(session({
+    secret: sessionKey,
+    store: store,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 } // 1 week
+}));
+
 
 /* MongoDB connection URL and database name */
 const url = 'mongodb+srv://DLSyUm-User:dlsyum@dlsyum.frgksot.mongodb.net/DLSyUm?retryWrites=true&w=majority&appName=DLSyUm';
