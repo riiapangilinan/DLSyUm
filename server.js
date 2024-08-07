@@ -59,7 +59,7 @@ app.use(session({
 
 
 /* MongoDB connection URL and database name */
-const url = 'mongodb+srv://DLSyUm-User:dlsyum@dlsyum.frgksot.mongodb.net/DLSyUm?retryWrites=true&w=majority&appName=DLSyUm';
+const url = process.env.MONGODB_URL;
 const dbName = 'DLSyUm';
 let db;
 
